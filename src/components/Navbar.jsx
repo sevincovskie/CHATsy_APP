@@ -18,16 +18,16 @@ const Navbar = () => {
         <a className="btn btn-ghost normal-case text-xl">CHATsy</a>
       </div>
 
-      {currentUser ? 
+      {currentUser ? (
         <button
           onClick={handleLogout}
           className="btn btn-light max-auto max-w-4xl px-5"
         >
           Logout
         </button>
-      : 
+      ) : (
         ""
-      }
+      )}
     </div>
   );
 };
