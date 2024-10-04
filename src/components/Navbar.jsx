@@ -1,5 +1,6 @@
 import React from "react";
 import { UserAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom"; // Link import edin
 
 const Navbar = () => {
   const { currentUser, logout } = UserAuth();
@@ -13,23 +14,29 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar fixed z-10 bg-black text-neutral-content ">
+    <div className="navbar fixed z-10 bg-black text-neutral-content">
       <div className="containerWrap flex justify-between">
-        <a className="btn btn-ghost normal-case text-xl">CHATsy</a>
+        <Link to="/" className="btn btn-ghost normal-case text-xl">CHATsy</Link>
+        
+        <div>
+          {currentUser ? (
+            <>
+              <span className="text-white">{currentUser.displayName}</span> {/* İstifadəçi adı */}
+              <button
+                onClick={handleLogout}
+                className="btn btn-light max-auto max-w-4xl px-5 ml-4"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link to="/login" className="btn btn-light">Login</Link> // Daxil ol düyməsi
+          )}
+        </div>
       </div>
-
-      {currentUser ? (
-        <button
-          onClick={handleLogout}
-          className="btn btn-light max-auto max-w-4xl px-5"
-        >
-          Logout
-        </button>
-      ) : (
-        ""
-      )}
     </div>
   );
 };
 
 export default Navbar;
+
