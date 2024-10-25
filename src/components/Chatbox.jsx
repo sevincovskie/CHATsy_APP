@@ -22,7 +22,7 @@ const Chatbox = () => {
   useEffect(() => {
     const q = query(
       collection(db, "messages"),
-      limit(50),
+      // limit(50),
       orderBy("createdAt")
     );
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
