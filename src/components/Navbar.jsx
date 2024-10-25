@@ -1,29 +1,4 @@
-// import { UserAuth } from "../context/AuthContext";
 
-// const Navbar = () => {
-//   const authContext = UserAuth();
-
-//   const { currentUser, logout } = authContext;
-
-//   const handleLogout = async () => {
-//     try {
-//       await logout();
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-
-//   return (
-//     <div className="navbar fixed z-10 bg-neutral text-neutral-content">
-//       <div className="containerWrap flex justify-between">
-//         <a className="btn btn-ghost normal-case text-xl">instantChat</a>
-//         {currentUser ? <button onClick={handleLogout}>Logout</button> : null}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Navbar;
 
 
 import React from "react";
@@ -43,7 +18,7 @@ const Navbar = () => {
   return (
     <div className="navbar fixed z-10 bg-neutral text-neutral-content">
       <div className="containerWrap flex justify-between">
-        <a className="btn btn-ghost normal-case text-xl">instantChat</a>
+        <a className="btn btn-ghost normal-case text-xl">Chatsy</a>
         {currentUser ? (
           <button onClick={handleLogout}>Logout</button>
         ) : (
