@@ -11,7 +11,14 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/chat" element={<PrivateRoute><ChatRoom/></PrivateRoute>} />
+        <Route
+          path="/chat"
+          element={
+            <PrivateRoute>
+              <ChatRoom />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </AuthProvider>
   );

@@ -1,6 +1,33 @@
+// import { UserAuth } from "../context/AuthContext";
+
+// const Navbar = () => {
+//   const authContext = UserAuth();
+
+//   const { currentUser, logout } = authContext;
+
+//   const handleLogout = async () => {
+//     try {
+//       await logout();
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+
+//   return (
+//     <div className="navbar fixed z-10 bg-neutral text-neutral-content">
+//       <div className="containerWrap flex justify-between">
+//         <a className="btn btn-ghost normal-case text-xl">instantChat</a>
+//         {currentUser ? <button onClick={handleLogout}>Logout</button> : null}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Navbar;
+
+
 import React from "react";
 import { UserAuth } from "../context/AuthContext";
-import { Link } from "react-router-dom"; // Link import edin
 
 const Navbar = () => {
   const { currentUser, logout } = UserAuth();
@@ -9,30 +36,19 @@ const Navbar = () => {
     try {
       await logout();
     } catch (error) {
-      console.log(error);
+      console.log("Logout error:", error); // Debugging log
     }
   };
 
   return (
-    <div className="navbar fixed z-10 bg-black text-neutral-content">
+    <div className="navbar fixed z-10 bg-neutral text-neutral-content">
       <div className="containerWrap flex justify-between">
-        <Link to="/" className="btn btn-ghost normal-case text-xl">CHATsy</Link>
-        
-        <div>
-          {currentUser ? (
-            <>
-              <span className="text-white">{currentUser.displayName}</span> {/* İstifadəçi adı */}
-              <button
-                onClick={handleLogout}
-                className="btn btn-light max-auto max-w-4xl px-5 ml-4"
-              >
-                Logout
-              </button>
-            </>
-          ) : (
-            <Link to="/login" className="btn btn-light">Login</Link> // Daxil ol düyməsi
-          )}
-        </div>
+        <a className="btn btn-ghost normal-case text-xl">instantChat</a>
+        {currentUser ? (
+          <button onClick={handleLogout}>Logout</button>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
